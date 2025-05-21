@@ -1,0 +1,62 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+
+const AllProducts = [
+  { category: 'monitores',  id: '1', title: 'Monitor Gamer 24" Full HD – IPS, 180Hz, 0,5ms, HDMI/DP, Antirreflexo, Altura Ajustável, Preto', price: 100, img: '/monitor-1.jpg', discount: 10, popularRank: 4, sold: 1237 },
+  { category: 'monitores',  id: '2', title: 'Monitor Gamer 27" Full HD – IPS, 180Hz, 1ms GTG, HDR10, DisplayPort/HDMI, Compatível com G-Sync e FreeSync', price: 400, img: '/monitor-2.png', discount: 25, popularRank: 9, sold: 937 },
+  { category: 'monitores',  id: '3', title: 'Monitor Gamer 24" Full HD – 100Hz, 1ms, Tela VA, HDMI, Widescreen', price: 500, img: '/monitor-3.jpg', discount: 12, popularRank: 21, sold: 537 },
+  { category: 'monitores',  id: '4', title: 'Monitor Gamer 24" Full HD – IPS, 180Hz, 0,5ms, HDMI/DP, Antirreflexo, Altura Ajustável, Preto', price: 500, img: '/monitor-4.webp', discount: 20, popularRank: 22, sold: 267 },
+  { category: 'monitores',  id: '5', title: 'Monitor Gamer Curvo 31.5" Widescreen – LED, 165Hz, 1ms, Design Imersivo', price: 500, img: '/monitor-2.png', discount: 30, popularRank: 29, sold: 197 },
+  { category: 'monitores',  id: '6', title: 'Monitor Gamer 27" Full HD – IPS, 180Hz, 0,5ms, HDMI/DP, Antirreflexo, Altura Ajustável, Preto', price: 500, img: '/monitor-1.jpg', discount: 20, sold: 246 },
+  { category: 'monitores',  id: '7', title: 'Monitor Curvo Ultrawide 34" WQHD – 165Hz, 1ms, HDMI/DP, FreeSync Premium, Preto', price: 500, img: '/monitor-4.webp', discount: 40, sold: 56 },
+  { category: 'monitores',  id: '8', title: 'Monitor 27" Full HD – 75Hz, 5ms, HDMI, FreeSync, Modo Gamer', price: 400, img: '/monitor-3.jpg', discount: 12, sold: 138 },
+  { category: 'monitores',  id: '9', title: 'Monitor Gamer 27" Full HD – IPS, 100Hz, 1ms, HDMI/DisplayPort', price: 500, img: '/monitor-1.jpg', discount: 5, sold: 239 },
+  { category: 'monitores',  id: '10', title: 'Monitor 24" Full HD – IPS, 75Hz, HDMI, FreeSync, Preto', price: 500, img: '/monitor-4.webp', discount: 30, sold: 37 },
+  { category: 'monitores',  id: '11', title: 'Monitor 27" Full HD – 75Hz, 5ms, HDMI, FreeSync, Modo Gamer', price: 100, img: '/monitor-1.jpg', discount: 40, sold: 137 },
+  { category: 'monitores',  id: '12', title: 'Monitor Gamer 24" Full HD – Tela Plana VA, 144Hz, 1ms, HDMI, FreeSync Premium', price: 500, img: '/monitor-2.png', discount: 10, sold: 37 },
+  { category:'mouses', id: '12', title: 'Monitor Gamer 24" Full HD – Tela Plana VA, 144Hz, 1ms, HDMI, FreeSync Premium', price: 500, img: '/monitor-2.png', discount: 20, sold: 737 },
+  { category:'mouses', id: '1', title: 'Mouse Gamer Wireless 4K – 26000 DPI, Sensor Óptico Avançado, 5 Botões, Preto', price: 800, img: '/mouse-1.webp', discount: 10, popularRank: 4, sold: 1556 },
+  { category:'mouses', id: '2',  title: 'Mouse Gamer Wireless Leve – 25400 DPI, 6 Botões, Branco, Alta Performance', price: 1100, img: '/mouse-4.jpg', discount: 35, popularRank: 6, sold: 744 },
+  { category:'mouses', id: '3',  title: 'Mouse Sem Fio Compacto – 1000 DPI, Rosa, Alimentado por Pilha', price: 80, img: '/mouse-6.jpg', discount: 20, popularRank: 7, sold: 623 },
+  { category:'mouses', id: '4',  title: 'Mouse Gamer com Iluminação RGB – 6 Botões Programáveis, 8500 DPI, Preto', price: 900, img: '/mouse-2.jpg', discount: 10, popularRank: 20, sold: 423 },
+  { category:'mouses', id: '5',  title: 'Mouse Gamer Wireless Rosa – Ultra Leve (60g), 25000 DPI, Design Ergonômico', price: 1300, img: '/mouse-5.jpg', discount: 45, sold: 224 },
+  { category:'mouses', id: '6',  title: 'Mouse Gamer Sem Fio – Ultra Leve (60g), 6300 DPI, Design Minimalista', price: 500, img: '/mouse-1.webp', discount: 30, sold: 134 },
+  { category:'mouses', id: '7',  title: 'Mouse Gamer Avançado – Wireless/Bluetooth, Sensor de Alta Precisão, 26000 DPI, Preto', price: 700, img: '/mouse-7.jpg', discount: 25, sold: 122 },
+  { category:'mouses', id: '8',  title: 'Mouse Gamer Wireless Branco – 25400 DPI, 6 Botões, Performance Profissional', price: 1000, img: '/mouse-4.jpg', discount: 10, sold: 200 },
+  { category:'mouses', id: '9',  title: 'Mouse Gamer RGB – 6 Botões, 52000 DPI, Design Preto com Iluminação Dinâmica', price: 200, img: '/mouse-3.jpg', discount: 10, sold: 133 },
+  { category:'mouses', id: '10', title: 'Mouse Gamer Branco – Wireless, 25400 DPI, 6 Botões, Design Leve', price: 999, img: '/mouse-4.jpg', discount: 5, sold: 45 },
+  { category:'mouses', id: '11', title: 'Mouse Sem Fio Compacto – Rosa, 1000 DPI, Alimentado por Pilha', price: 90, img: '/mouse-6.jpg', discount: 28, sold: 98 },
+  { category:'mouses', id: '12', title: 'Mouse Gamer RGB – 6 Botões, 52000 DPI, Preto, Edição Avançada', price: 1500, img: '/mouse-3.jpg', discount: 66, sold: 320 },
+  { category:'mouses', id: '13', title: 'Mouse Gamer Rosa – Ultra Leve (60g), Wireless, 25000 DPI, Ergonômico', price: 78, img: '/mouse-5.jpg', discount: 20, sold: 121 },
+  { category:'mouses', id: '14', title: 'Mouse Sem Fio Rosa – Compacto, 1000 DPI, Prático e Leve', price: 120, img: '/mouse-6.jpg', discount: 10, sold: 68 },
+  { category:'mouses', id: '15', title: 'Mouse Gamer Wireless Branco – 25400 DPI, 6 Botões, Ultra Leve', price: 300, img: '/mouse-4.jpg', discount: 20, sold: 88 },
+  { category:'mouses', id: '16', title: 'Mouse Gamer Pro – Wireless/Bluetooth, Sensor de Alta Precisão, 26000 DPI, Preto', price: 1600, img: '/mouse-7.jpg', discount: 30, sold: 112 },
+  { category:'mouses', id: '17', title: 'Mouse Gamer com Iluminação RGB – 6 Botões Programáveis, 8500 DPI, Preto', price: 800, img: '/mouse-2.jpg', discount: 15, sold: 13 },
+  { category:'mouses', id: '18', title: 'Mouse Gamer Wireless 4K – 26000 DPI, Sensor Óptico Avançado, 5 Botões, Preto', price: 500, img: '/mouse-1.webp', discount: 12, sold: 345 },
+  { category:'teclados',  id: "1",  title: 'Teclado com Fio USB TechBoard K120 – Resistente à Respingos, Layout ABNT2', price: 400, img: '/keyboard-1.webp', discount: 60, popularRank: 1, sold: 823 },
+  { category:'teclados',  id: "2",  title: 'Teclado com Fio MultiBoard TF100 – USB, Layout ABNT2, Cabo 120cm, Resistente à Água, Preto', price: 900, img: '/keyboard-2.jpg', discount: 28, sold: 89 },
+  { category:'teclados',  id: "3",  title: 'Teclado Mecânico Gamer Vulcan K60 – Anti-Ghosting, RGB, Switch Red, ABNT2', price: 1500, img: '/keyboard-6.webp', discount: 10, popularRank: 5, sold: 652 },
+  { category:'teclados',  id: "4",  title: 'Teclado Mecânico Gamer Titan TKL 515 – RGB LightSync, USB 2.0, Preto', price: 700, img: '/keyboard-3.jpg', discount: 35, popularRank: 6, sold: 598 },
+  { category:'teclados',  id: "5",  title: 'Teclado Gamer ProMech X TKL Rapid – Switch Magnético-Analógico, Rapid Trigger, Layout US, Preto', price: 800, img: '/keyboard-4.jpg', discount: 60, popularRank: 10, sold: 541 },
+  { category:'teclados',  id: "6",  title: 'Teclado Mecânico Gamer GX512 Carbon – Layout ABNT2, RGB LightSync, USB Passthrough, Switch GX Brown', price: 400, img: '/keyboard-2.jpg', discount: 20, popularRank: 14, sold: 520 },
+  { category:'teclados',  id: "7",  title: 'Teclado Mecânico Gamer Alloy Rise G75 – RGB, Switch Linear, Anti-Ghosting, Preto', price: 999, img: '/keyboard-5.jpg', discount: 25, popularRank: 23, sold: 489 },
+  { category:'teclados',  id: "8",  title: 'Teclado Mecânico Gamer RedWolf APS – RGB, Switch Brown, ABNT2, Preto', price: 500, img: '/keyboard-4.jpg', discount: 30, sold: 478 },
+  { category:'teclados',  id: "9",  title: 'Teclado Gamer ProMech X TKL Rapid – Switch Magnético-Analógico, Rapid Trigger, Layout US', price: 100, img: '/keyboard-1.webp', discount: 10, sold: 379 },
+  { category:'teclados',  id: "10",  title: 'Teclado Gamer ProMech X TKL Rapid – Switch Magnético-Analógico, Rapid Trigger, Layout US', price: 500, img: '/keyboard-5.jpg', discount: 23, sold: 298 },
+  { category:'teclados',  id: "11",  title: 'Teclado Mecânico Gamer Alloy Rise G75 Compact – RGB, Switch Linear, Layout 75%, Anti-Ghosting, Preto', price: 500, img: '/keyboard-6.webp', discount: 20, sold: 159 },
+  { category:'notebooks',  id: '2',  title: 'Notebook Gamer Titan Z16 – Intel Core i5, 16GB RAM, GeForce RTX 3050, SSD 512GB, Tela 16" 2K QHD, Windows 11', price: 7999, img: '/notebook-6.avif', discount: 15, popularRank: 6, sold: 984 },
+  { category:'notebooks',  id: '3',  title: 'Notebook Gamer Blaze 700 – Intel Core i7, 8GB RAM, RTX 3050, Desempenho para jogos e produtividade', price: 3299, img: '/notebook-4.webp', discount: 10, popularRank: 8, sold: 451 },
+  { category:'notebooks',  id: '4',  title: 'Notebook Gamer CoreFire 15 – Intel Core i5-12450H, 16GB RAM, RTX 2050, SSD 512GB, Tela 15.6" FHD, Windows 11', price: 4999, img: '/notebook-2.png', discount: 20, popularRank: 12, sold: 842 },
+  { category:'notebooks',  id: '5',  title: 'Notebook SwiftBook 5 – AMD Ryzen 7, 12GB RAM, Tela 15.6" HD, Design fino e leve', price: 2999, img: '/notebook-5.webp', discount: 45, popularRank: 18, sold: 785 },
+  { category:'notebooks',  id: '6',  title: 'Notebook Gamer Pulse 3X – Intel Core i7-10750H, 8GB RAM, GTX 1650, SSD 512GB, 15.6" Full HD, Windows 10', price: 2699, img: '/notebook-3.jfif', discount: 10, sold: 654 },
+  { category:'notebooks',  id: '7',  title: 'Notebook Gamer Nitrox 144 – Intel Core i5, Tela 15.6" IPS 144Hz, Windows 11', price: 1499, img: '/notebook-4.webp', discount: 20, sold: 652 },
+  { category:'notebooks',  id: '8',  title: 'Notebook Ultrafino NovaBook 14 – Intel Core Ultra 5, 16GB RAM, SSD 512GB, Tela 14", Windows 11 Home', price: 1190, img: '/notebook-1.webp', discount: 20, sold: 579 },
+  { category:'notebooks',  id: '9',  title: 'Notebook Gamer Storm V15 – Ryzen 7 5800H, 8GB RAM, GTX 1650, SSD 256GB, Tela 15.6" FHD, Windows 11', price: 2899, img: '/notebook-5.webp', discount: 25, sold: 498 },
+  { category:'notebooks',  id: '10',  title: 'Notebook Gamer CoreFire 15 – Intel Core i5-12450H, 16GB RAM, RTX 2050, SSD 512GB, Tela 15.6" FHD, Windows 11', price: 6099, img: '/notebook-6.avif', discount: 20, sold: 156 },
+
+];
+
+
+  return NextResponse.json(AllProducts)
+}
