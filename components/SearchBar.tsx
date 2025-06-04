@@ -77,7 +77,7 @@ const SearchBar = (props: Props) => {
   return (
     <div className='relative flex flex-col gap-3'>
       <form onSubmit={handleSubmit}>
-        <input ref={input} onChange={handleChange} onFocus={handleFocus} onBlur={handleUnfocus} className='bg-white text-black w-220 h-10 p-6 rounded' type="text" placeholder='Pesquise o seu produto' />
+        <input ref={input} onChange={handleChange} onFocus={handleFocus} onBlur={handleUnfocus} className='bg-white text-black w-220 h-10 p-6 rounded ' type="text" placeholder='Pesquise o seu produto' />
         <div className='flex mb-3 '>
           {isInputActive && <div className='bg-white h-fit  max-h-95 w-full absolute overflow-x-scroll   '>
             {userSearch.map((product, index) =>

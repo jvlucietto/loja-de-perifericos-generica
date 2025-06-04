@@ -3,5 +3,5 @@ export const NavBarLinks = [
   {name: 'Notebooks', route: '/notebooks'},
   {name: 'Teclados', route: '/teclados'},
   {name: 'Monitores', route: '/monitores'},
-  {name: 'Cadastrar novo produto', route: '/cadastro-de-produto'},
+  // {name: 'Cadastrar novo produto', route: '/cadastro-de-produto'},
 ]
