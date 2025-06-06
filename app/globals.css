@@ -11,7 +11,8 @@
   --color-money-green: #00A000;
   --color-light-money-green: #73C300;
   --shadow-3xs: 0 3px 3px rgba(0, 0, 0, 0.05);
-  --color-background-dark-blue: #02144b
+  --color-background-dark-blue: #02144b;
+  --font-main: var(--font-roboto-mono);
 }
 
 #cart{

@@ -5,7 +5,7 @@ type Props = {}
 
 const Banner = (props: Props) => {
   return (
-          <div className="relative  w-[100%] h-[300px]  flex items-start justify-start bg-background-dark-blue">
+          <div className="relative h-25 md:h-50  lg:w-full lg:h-100  flex items-start justify-start bg-background-dark-blue">
         <Image alt="" src={'/banner-loja.png'}  fill style={{ objectFit: 'contain' }} ></Image>
       </div>
   )

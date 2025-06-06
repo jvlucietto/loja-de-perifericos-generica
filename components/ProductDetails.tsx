@@ -20,41 +20,41 @@ const ProductDetails = ({ title, price, img, discount, popularRank, sold }: Prop
 
   return (
     <div>
-      <div className=' border-1 w-fit h-fit p-10 bg-white border-neutral-200 flex items-start justify-center p-' >
+      <div className=' border-1 w-fit h-fit p-10 bg-white border-neutral-200 flex gap-3 lg:gap-0 lg:flex-row flex-col items-center lg:items-start justify-center ' >
 
-        <div className=' w-[600px]'>
+        <div className='  w-40 lg:w-[600px]'>
           <Image height={30} width={810} alt='' src={img}></Image>
         </div>
 
-        <div className= '  w-[640px]  text-white border-red-500 bg-neutral-700 h-[810px] rounded '>
+        <div className= '   w-70 lg:w-[640px]  text-white border-red-500 bg-neutral-700 pb-10 lg:pb-0 lg:h-[810px] rounded '>
           
       <div className='flex flex-col gap-4 m-2' >
 
-          <div  className='  border-1 border-b-emerald-500 p-3 text-lg'>
+          <div  className='  border-b-emerald-500 p-3 lg:text-lg'>
             {title}
           </div>
-        <div className='border-2 flex items-center justify-center h-fit gap-6 text-orange-500 text-2xl font-bold ' >
+        <div className='flex items-center justify-center h-fit gap-6 text-orange-500 text-xl lg:text-2xl font-bold ' >
 
-        <div className='border-1 flex flex-col items-center justify-center h-15 w-40 ' >
+        <div className=' flex flex-col items-center justify-center h-15 w-40 ' >
+          <p>DESCONTO</p>
           {discount}%
         </div>
 
-      <div className='border-1 flex items-center justify-center h-15 w-40' >
+      <div className=' flex flex-col items-center justify-center h-15 w-40' >
+        <p>VENDIDOS</p>
         {sold}
       </div>
         </div>
-          <div className='' >
-            {popularRank}
-          </div>
-          <div className='border-1 border-b-emerald-500 p-3'>
+   
+          <div className=' border-b-emerald-500 p-3'>
           <div className='flex gap-1.5 text-white text-sm'  > <p className='line-through '> De: R$:{price}</p> <p>por: </p>
           </div>
-          <p className='text-4xl text-light-money-green font-bold'>
+          <p className=' text-xl lg:text-4xl text-light-money-green font-bold'>
               R$ {discountedPrice} 
             </p>           
           </div>
 
-          <div className='flex items-center justify-center text-lg font-bold '>
+          <div className='flex items-center justify-center lg:text-lg font-bold '>
             <button className='bg-light-money-green w-11/12 h-12 rounded cursor-pointer transition delay-75 duration-300 ease hover:bg-money-green  0.4s ' >COMPRAR COM DESCONTO</button>
             </div>
       </div>

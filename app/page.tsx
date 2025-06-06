@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
 
-    <div className="  flex items-start flex-col  mt-25 w-full ">
+    <div className="  lg:flex items-start flex-col  mt-25 w-full ">
       <BestProducts headMessage='SUPER DESCONTOS!!!' peripheral={highestDiscounts} />
       <BestProducts headMessage='MAIS VENDIDOS?!' peripheral={mostSold} />
       <BestProducts headMessage='MENOR PREÇO' peripheral={cheapestProducts} />
